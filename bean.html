@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>콩의 딜레마</title>
+    <link rel="stylesheet" href="bean-css.css">
+</head>
+<body>
+    <div class="container">
+        <h1>콩의 딜레마</h1>
+        <div id="setup">
+            <h2>플레이어 설정</h2>
+            <form id="teamSizeForm">
+                <label for="team1Size">팀1 플레이어 인원 수 :</label>
+                <input type="number" id="team1Size" min="1" max="10" required>
+                <label for="team2Size">팀2 플레이어 인원 수 :</label>
+                <input type="number" id="team2Size" min="1" max="10" required>
+                <button type="submit">확인</button>
+            </form>
+        </div>
+        <div id="playerSetup" style="display: none;">
+            <h2>닉네임 및 비밀번호 입력</h2>
+            <form id="individualPlayerForm">
+                <label for="playerName">플레이어 이름:</label>
+                <input type="text" id="playerName" required>
+                <label for="playerPassword">비밀번호 (3자리):</label>
+                <input type="password" id="playerPassword" maxlength="3" required>
+                <button type="submit">다음</button>
+            </form>
+        </div>
+        <div id="game" style="display:none;">
+            <h2>라운드 <span id="roundNumber">1</span></h2>
+            <div id="gameBoard">
+                <h3 id="team1Name"></h3>
+                <div id="team1Players" class="team"></div>
+                <h3 id="team2Name"></h3>
+                <div id="team2Players" class="team"></div>
+            </div>
+            <div id="playerInputArea" style="display:none;">
+                <label id="playerNameLabel"></label>
+                <label>비밀번호 입력:</label>
+                <input type="password" id="playerPasswordInput" maxlength="3" required>
+                <button id="passwordSubmit">확인</button>
+                <button id="goBack">뒤로가기</button>
+            </div>
+            <div id="beanInputArea" style="display:none;">
+                <label id="beanInputLabel"></label>
+                <input type="number" id="beanInput" min="0" max="10" value="0" required>
+                <button id="submitBean">제출</button>
+            </div>
+            <div id="results" style="display:none;">
+                <h3 id="resultTitle">라운드 결과</h3>
+                <p id="resultMessage"></p>
+                <button id="nextRound">다음 라운드</button>
+            </div>
+            <div id="showResultsButton" style="display:none;">
+                <button id="showResults">라운드 결과 보기</button>
+            </div>
+        </div>
+        <div id="finalResults" style="display:none;">
+            <h2>최종 결과</h2>
+            <div id="finalScores"></div>
+            <button onclick="location.reload();">게임 재시작</button>
+        </div>
+    </div>
+    <canvas id="fireworksCanvas" style="position:fixed; top:0; left:0; width:100%; height:100%; pointer-events:none;"></canvas>
+    <script src="bean-js.js"></script>
+</body>
+</html>
